@@ -1,0 +1,536 @@
+/* ============================================
+   VARIABLES & TIPOGRAFÍA
+   ============================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap");
+
+:root {
+  /* Colores */
+  --color-fondo: #0e0e0e;
+  --color-superficie: #161616;
+  --color-borde: #2a2a2a;
+  --color-acento: #c9a96e;
+  --color-acento-hover: #e0c08a;
+  --color-texto: #e8e4dc;
+  --color-texto-suave: #9a9589;
+  --color-blanco: #ffffff;
+  --color-whatsapp: #25d366;
+  --color-instagram: #ad22a4;
+
+  /* Tipografía */
+  --fuente-display: "Cormorant Garamond", Georgia, serif;
+  --fuente-cuerpo: "Montserrat", sans-serif;
+
+  /* Espaciado */
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 1rem;
+  --espacio-md: 2rem;
+  --espacio-lg: 4rem;
+  --espacio-xl: 7rem;
+
+  /* Layout */
+  --contenedor-max: 1100px;
+  --radio: 4px;
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-cuerpo);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: var(--contenedor-max);
+  margin: 0 auto;
+}
+
+.seccion__titulo {
+  font-family: var(--fuente-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--color-texto);
+  margin-bottom: var(--espacio-lg);
+  letter-spacing: 0.04em;
+}
+
+.seccion__titulo::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--color-acento);
+  margin-top: var(--espacio-xs);
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: var(--radio);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn--primario {
+  background: var(--color-acento);
+  color: var(--color-fondo);
+}
+
+.btn--primario:hover {
+  background: var(--color-acento-hover);
+  transform: translateY(-2px);
+}
+
+.btn--secundario {
+  background: transparent;
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+}
+
+.btn--secundario:hover {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+  transform: translateY(-2px);
+}
+
+.btn--whatsapp {
+  background: var(--color-whatsapp);
+  color: #fff;
+}
+
+.btn--whatsapp:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   1. HERO / INICIO
+   ============================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--espacio-xl) 0;
+  overflow: hidden;
+
+  /* Fondo: reemplaza la URL con tu imagen de render */
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(14, 14, 14, 0.92) 45%,
+      rgba(14, 14, 14, 0.5) 100%
+    ),
+    url("../images/hero-render.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.hero__contenido {
+  width: 90%;
+  max-width: var(--contenedor-max);
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.hero__titulo {
+  font-family: var(--fuente-display);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  color: var(--color-blanco);
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero__subtitulo-grande {
+  font-family: var(--fuente-display);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-acento);
+  letter-spacing: 0.08em;
+  margin-top: var(--espacio-xs);
+  animation: fadeUp 0.9s 0.15s ease both;
+}
+
+.hero__descripcion {
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+  margin: var(--espacio-md) 0 var(--espacio-md);
+  max-width: 420px;
+  letter-spacing: 0.03em;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+
+.hero__botones {
+  display: flex;
+  gap: var(--espacio-sm);
+  flex-wrap: wrap;
+  animation: fadeUp 0.9s 0.45s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   2. SOBRE MICHELL
+   ============================================ */
+
+.sobre-mi {
+  padding: var(--espacio-xl) 0;
+  border-top: 1px solid var(--color-borde);
+}
+
+.sobre-mi__contenido {
+  display: flex;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--espacio-lg);
+  align-items: center;
+  gap: 50px;
+}
+
+.sobre-mi__imagen {
+  max-width: 280px;
+}
+
+.sobre-mi__imagen img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(30%);
+  border-radius: var(--radio);
+  display: block;
+}
+
+.sobre-mi__texto p {
+  font-size: 1rem;
+  color: var(--color-texto-suave);
+  line-height: 1.9;
+  max-width: 560px;
+}
+
+/* ============================================
+   3. SERVICIOS
+   ============================================ */
+
+.servicios {
+  padding: var(--espacio-xl) 0;
+  background: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.servicios__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--color-borde);
+  border: 1px solid var(--color-borde);
+}
+
+.servicio__tarjeta {
+  background: var(--color-superficie);
+  padding: var(--espacio-md) var(--espacio-md) var(--espacio-lg);
+  transition: background 0.3s ease;
+}
+
+.servicio__tarjeta:hover {
+  background: #1e1e1e;
+}
+
+.servicio__nombre {
+  font-family: var(--fuente-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-acento);
+  margin-bottom: var(--espacio-xs);
+  letter-spacing: 0.02em;
+}
+
+.servicio__descripcion {
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  line-height: 1.8;
+}
+
+/* ============================================
+   4. PROYECTOS
+   ============================================ */
+
+.proyectos {
+  padding: var(--espacio-xl) 0;
+}
+
+.proyectos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--espacio-md);
+}
+
+.proyecto__tarjeta {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.proyecto__tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+}
+
+.proyecto__imagen {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.proyecto__tarjeta:hover .proyecto__imagen {
+  transform: scale(1.04);
+}
+
+.proyecto__info {
+  padding: var(--espacio-md);
+}
+
+.proyecto__nombre {
+  font-family: var(--fuente-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-texto);
+  margin-bottom: var(--espacio-xs);
+}
+
+.proyecto__tipo {
+  font-size: 0.78rem;
+  color: var(--color-texto-suave);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--espacio-md);
+}
+
+/* ============================================
+   5. PROCESO DE TRABAJO
+   ============================================ */
+
+.proceso {
+  padding: var(--espacio-xl) 0;
+  background: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.proceso__pasos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--espacio-md);
+  margin-bottom: var(--espacio-lg);
+  counter-reset: paso;
+}
+
+.proceso__paso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-md);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  position: relative;
+}
+
+.proceso__numero {
+  font-family: var(--fuente-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--color-acento);
+  opacity: 0.6;
+  line-height: 1;
+}
+
+.proceso__paso p {
+  font-size: 0.88rem;
+  color: var(--color-texto-suave);
+  line-height: 1.7;
+}
+
+.proceso__pago {
+  border-top: 1px solid var(--color-borde);
+  padding-top: var(--espacio-md);
+  display: flex;
+  align-items: baseline;
+  gap: var(--espacio-lg);
+  flex-wrap: wrap;
+}
+
+.proceso__pago h3 {
+  font-family: var(--fuente-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-texto-suave);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.proceso__pago ul {
+  display: flex;
+  gap: var(--espacio-md);
+  flex-wrap: wrap;
+}
+
+.proceso__pago li {
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.proceso__pago li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-acento);
+}
+
+/* ============================================
+   6. CONTACTO
+   ============================================ */
+
+.contacto {
+  padding: var(--espacio-xl) 0;
+}
+
+.contacto__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+}
+
+.contacto__item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-md);
+  padding-bottom: var(--espacio-md);
+  border-bottom: 1px solid var(--color-borde);
+  flex-wrap: wrap;
+}
+
+.contacto__etiqueta {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+  min-width: 90px;
+}
+
+.contacto__enlace {
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  transition: color 0.25s ease;
+}
+
+.contacto__enlace:hover {
+  color: var(--color-acento);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  padding: var(--espacio-md) 0;
+  border-top: 1px solid var(--color-borde);
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-texto-suave);
+  letter-spacing: 0.08em;
+}
+
+/* ============================================
+   RESPONSIVE — MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --espacio-xl: 4rem;
+    --espacio-lg: 2.5rem;
+  }
+
+  .sobre-mi__contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-mi__imagen {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .sobre-mi__imagen img {
+    height: 260px;
+  }
+
+  .proceso__pasos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .proceso__pago {
+    flex-direction: column;
+    gap: var(--espacio-sm);
+  }
+
+  .contacto__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--espacio-xs);
+  }
+
+  .hero__botones {
+    flex-direction: column;
+  }
+
+  .btn {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .proceso__pasos {
+    grid-template-columns: 1fr;
+  }
+}
